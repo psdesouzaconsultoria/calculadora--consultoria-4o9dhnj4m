@@ -1,0 +1,356 @@
+{
+  "generatedAt": "2026-11-10T20:49:03.313Z",
+  "collections": [
+    {
+      "name": "users",
+      "type": "auth",
+      "apiRules": {
+        "list": "id = @request.auth.id",
+        "view": "id = @request.auth.id",
+        "create": "",
+        "update": "id = @request.auth.id",
+        "delete": "id = @request.auth.id"
+      },
+      "fields": [
+        {
+          "name": "name",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "avatar",
+          "type": "file",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE UNIQUE INDEX `idx_tokenKey__pb_users_auth_` ON `users` (`tokenKey`)",
+        "CREATE UNIQUE INDEX `idx_email__pb_users_auth_` ON `users` (`email`) WHERE `email` != ''"
+      ]
+    },
+    {
+      "name": "parameters",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "version_name",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "is_active",
+          "type": "bool",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "revenue_brackets",
+          "type": "json",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "complexity_weights",
+          "type": "json",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "discount_ladder",
+          "type": "json",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "payment_conditions",
+          "type": "json",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "simples_rules",
+          "type": "json",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "cost_margin_config",
+          "type": "json",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "proposal_templates",
+          "type": "json",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": []
+    },
+    {
+      "name": "proposals",
+      "type": "base",
+      "apiRules": {
+        "list": "@request.auth.id != ''",
+        "view": "@request.auth.id != ''",
+        "create": "@request.auth.id != ''",
+        "update": "@request.auth.id != ''",
+        "delete": "@request.auth.id != ''"
+      },
+      "fields": [
+        {
+          "name": "user_id",
+          "type": "relation",
+          "required": true,
+          "system": false,
+          "collectionRef": "users"
+        },
+        {
+          "name": "code",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "client_name",
+          "type": "text",
+          "required": true,
+          "system": false
+        },
+        {
+          "name": "cnpj",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "proposal_date",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "valid_until",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "tax_regime",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "monthly_revenue",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "current_monthly_fee",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "accounting_firm",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "responsible_name",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "contact_name",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "contact_email",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "contact_phone",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "status",
+          "type": "select",
+          "required": false,
+          "system": false,
+          "selectValues": ["rascunho", "enviada", "em_negociacao", "aprovada", "recusada"]
+        },
+        {
+          "name": "sector",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "cnpj_count",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "customer_profile",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "tax_benefits",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "data_quality",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "suppliers_count",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "clients_count",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "sku_count",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "complexity_factor",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "discount_level",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "discount_percentage",
+          "type": "number",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "discount_counterpart",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "payment_condition",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "recommended_product",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "pricing_snapshot",
+          "type": "json",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "audit_snapshot",
+          "type": "json",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "custom_notes",
+          "type": "text",
+          "required": false,
+          "system": false
+        },
+        {
+          "name": "created",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate"]
+        },
+        {
+          "name": "updated",
+          "type": "autodate",
+          "required": false,
+          "system": false,
+          "autodateTriggers": ["onCreate", "onUpdate"]
+        }
+      ],
+      "indexes": [
+        "CREATE INDEX idx_proposals_user ON proposals (user_id)",
+        "CREATE INDEX idx_proposals_status ON proposals (status)",
+        "CREATE INDEX idx_proposals_created ON proposals (created DESC)"
+      ]
+    }
+  ]
+}
