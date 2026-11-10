@@ -69,7 +69,7 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
           <div className="flex items-center justify-between">
             <div>
               <CardTitle className="text-lg flex items-center gap-2">
-                <Sparkles className="h-5 w-5 text-primary" />
+                <Sparkles className="h-5 w-5 text-brand-gold-dark" />
                 3.1 Produto Recomendado para o Cliente
               </CardTitle>
               <CardDescription>
@@ -79,7 +79,7 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
             </div>
             <Badge
               variant="outline"
-              className="bg-primary/5 text-primary border-primary/20 text-xs"
+              className="bg-brand-navy/5 text-brand-navy border-brand-navy/20 text-xs"
             >
               Sugerido por IA / Regime
             </Badge>
@@ -104,7 +104,9 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
                       <h4 className="font-bold text-foreground text-sm">{name}</h4>
                       <p className="text-xs text-muted-foreground mt-0.5">{sub}</p>
                     </div>
-                    {isSelected && <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />}
+                    {isSelected && (
+                      <CheckCircle2 className="h-5 w-5 text-brand-gold-dark shrink-0" />
+                    )}
                   </div>
                 </div>
               )
@@ -117,7 +119,7 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
       <Card>
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
-            <Percent className="h-5 w-5 text-primary" />
+            <Percent className="h-5 w-5 text-brand-gold-dark" />
             3.2 Régua de Desconto Comercial e Contrapartida
           </CardTitle>
           <CardDescription>
@@ -135,7 +137,7 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
                   onClick={() => handleDiscountChange(tier.level)}
                   className={`cursor-pointer rounded-xl p-4 border transition-all flex flex-col justify-between ${
                     isSelected
-                      ? 'border-primary bg-primary/5 ring-1 ring-primary shadow-xs'
+                      ? 'border-brand-gold bg-brand-gold/10 ring-1 ring-brand-gold shadow-xs'
                       : 'border-border/60 hover:bg-muted/30'
                   }`}
                 >
@@ -152,13 +154,13 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
           </div>
 
           {selectedTier && selectedTier.percentage > 0 && (
-            <div className="p-3.5 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs flex items-start gap-2.5">
-              <AlertCircle className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
+            <div className="p-3.5 rounded-lg bg-brand-gold/10 border border-brand-gold/30 text-xs flex items-start gap-2.5">
+              <AlertCircle className="h-4 w-4 text-brand-gold-dark shrink-0 mt-0.5" />
               <div>
-                <span className="font-semibold text-amber-900 dark:text-amber-200">
+                <span className="font-semibold text-brand-gold-dark">
                   Contrapartida Obrigatória ({selectedTier.percentage}%):
                 </span>{' '}
-                <span className="text-amber-800 dark:text-amber-300">
+                <span className="text-foreground/80">
                   {proposal.discount_counterpart || selectedTier.counterpart}
                 </span>
               </div>
@@ -171,7 +173,7 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
       <Card>
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
-            <CreditCard className="h-5 w-5 text-primary" />
+            <CreditCard className="h-5 w-5 text-brand-gold-dark" />
             3.3 Condições de Pagamento e Ajuste Financeiro
           </CardTitle>
           <CardDescription>
@@ -198,7 +200,7 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
                   </div>
                   <p className="text-xs text-muted-foreground">{cond.description}</p>
                 </div>
-                <div className="mt-3 text-[11px] font-mono text-primary font-medium">
+                <div className="mt-3 text-[11px] font-mono text-brand-gold-dark font-medium">
                   {cond.adjustment < 0
                     ? `${(cond.adjustment * 100).toFixed(0)}% bonificação`
                     : cond.adjustment > 0
@@ -224,12 +226,12 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
                 key={key}
                 className={`relative flex flex-col justify-between overflow-hidden transition-all ${
                   isRec
-                    ? 'border-2 border-primary shadow-md bg-gradient-to-b from-card to-primary/5'
+                    ? 'border-2 border-brand-gold shadow-md bg-gradient-to-b from-card to-brand-gold/5'
                     : 'border-border/80'
                 }`}
               >
                 {isRec && (
-                  <div className="bg-primary text-primary-foreground text-center py-1 text-xs font-semibold uppercase tracking-wider">
+                  <div className="bg-brand-navy text-white text-center py-1 text-xs font-semibold uppercase tracking-wider">
                     Recomendação Estratégica
                   </div>
                 )}
@@ -270,7 +272,7 @@ export default function TabInvestment({ proposal, params, pricing, onChange }: T
                       )}
                     </div>
                     {key !== 'comite' && item.installmentsCount > 1 && (
-                      <p className="text-xs text-primary font-medium mt-1">
+                      <p className="text-xs text-brand-gold-dark font-medium mt-1">
                         ou {item.installmentsCount}x de {formatBRL(item.installmentValue)}
                       </p>
                     )}

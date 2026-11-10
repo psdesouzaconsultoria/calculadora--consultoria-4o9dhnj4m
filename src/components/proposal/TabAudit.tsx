@@ -23,9 +23,9 @@ export default function TabAudit({ audit, params }: TabAuditProps) {
   const getStatusIcon = (status: 'verde' | 'amarelo' | 'vermelho') => {
     switch (status) {
       case 'verde':
-        return <CheckCircle className="h-5 w-5 text-emerald-500" />
+        return <CheckCircle className="h-5 w-5 text-brand-gold" />
       case 'amarelo':
-        return <AlertTriangle className="h-5 w-5 text-amber-500" />
+        return <AlertTriangle className="h-5 w-5 text-brand-gold-dark" />
       case 'vermelho':
         return <XCircle className="h-5 w-5 text-rose-500" />
     }
@@ -35,10 +35,16 @@ export default function TabAudit({ audit, params }: TabAuditProps) {
     switch (status) {
       case 'verde':
         return (
-          <Badge className="bg-emerald-600 hover:bg-emerald-700">Viável / Margem Saudável</Badge>
+          <Badge className="bg-brand-gold hover:bg-brand-gold-dark text-white">
+            Viável / Margem Saudável
+          </Badge>
         )
       case 'amarelo':
-        return <Badge className="bg-amber-600 hover:bg-amber-700">Atenção / Margem Baixa</Badge>
+        return (
+          <Badge className="bg-brand-navy hover:bg-brand-navy/90 text-white">
+            Atenção / Margem Baixa
+          </Badge>
+        )
       case 'vermelho':
         return <Badge variant="destructive">Crítico / Inviável</Badge>
     }
@@ -107,7 +113,7 @@ export default function TabAudit({ audit, params }: TabAuditProps) {
 
             <div
               className={`flex justify-between font-bold text-sm py-2 px-3 rounded-lg ${
-                isLoss ? 'bg-rose-500/10 text-rose-600' : 'bg-emerald-500/10 text-emerald-600'
+                isLoss ? 'bg-rose-500/10 text-rose-600' : 'bg-brand-gold/15 text-brand-gold-dark'
               }`}
             >
               <span>(=) Margem de Contribuição:</span>
@@ -133,7 +139,7 @@ export default function TabAudit({ audit, params }: TabAuditProps) {
               <span className="text-muted-foreground block text-[11px]">
                 Preço p/ Margem Alvo ({(cfg.targetMarginRate * 100).toFixed(0)}%):
               </span>
-              <span className="font-bold text-primary">{formatBRL(dre.marginTargetPrice)}</span>
+              <span className="font-bold text-brand-navy">{formatBRL(dre.marginTargetPrice)}</span>
             </div>
           </div>
         </CardContent>
@@ -144,16 +150,16 @@ export default function TabAudit({ audit, params }: TabAuditProps) {
   return (
     <div className="space-y-6">
       {/* Alerta de Confidencialidade Interna */}
-      <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-between gap-4">
+      <div className="p-4 rounded-xl bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <div className="p-2 rounded-lg bg-amber-500/20 text-amber-700 dark:text-amber-300">
+          <div className="p-2 rounded-lg bg-brand-gold/20 text-brand-gold-dark">
             <Lock className="h-5 w-5" />
           </div>
           <div>
-            <h4 className="font-semibold text-sm text-amber-950 dark:text-amber-100">
+            <h4 className="font-semibold text-sm text-foreground">
               Painel de Auditoria Interna e DRE (Uso Restrito do Escritório)
             </h4>
-            <p className="text-xs text-amber-800/80 dark:text-amber-200/80">
+            <p className="text-xs text-muted-foreground">
               Estes dados de custos, horas e margem são confidenciais e <strong>NUNCA</strong>{' '}
               aparecem na proposta comercial entregue ao cliente.
             </p>
@@ -161,7 +167,7 @@ export default function TabAudit({ audit, params }: TabAuditProps) {
         </div>
         <Badge
           variant="outline"
-          className="border-amber-500/40 text-amber-700 dark:text-amber-300 hidden sm:inline-flex"
+          className="border-brand-gold/50 text-brand-gold-dark hover:bg-brand-gold/10 hidden sm:inline-flex"
         >
           Confidencial
         </Badge>
@@ -171,7 +177,7 @@ export default function TabAudit({ audit, params }: TabAuditProps) {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card className="p-4">
           <span className="text-xs text-muted-foreground flex items-center gap-1">
-            <Clock className="h-3.5 w-3.5 text-primary" /> Custo Hora Técnica
+            <Clock className="h-3.5 w-3.5 text-brand-navy" /> Custo Hora Técnica
           </span>
           <div className="text-xl font-bold text-foreground mt-1">
             {formatBRL(cfg.hourlyCost)}/h
@@ -179,7 +185,7 @@ export default function TabAudit({ audit, params }: TabAuditProps) {
         </Card>
         <Card className="p-4">
           <span className="text-xs text-muted-foreground flex items-center gap-1">
-            <ShieldCheck className="h-3.5 w-3.5 text-primary" /> Deduções s/ Nota
+            <ShieldCheck className="h-3.5 w-3.5 text-brand-navy" /> Deduções s/ Nota
           </span>
           <div className="text-xl font-bold text-foreground mt-1">
             {((cfg.taxesRate + cfg.commissionRate + cfg.indirectCostRate) * 100).toFixed(1)}%
@@ -187,9 +193,9 @@ export default function TabAudit({ audit, params }: TabAuditProps) {
         </Card>
         <Card className="p-4">
           <span className="text-xs text-muted-foreground flex items-center gap-1">
-            <TrendingUp className="h-3.5 w-3.5 text-primary" /> Margem Alvo Escritório
+            <TrendingUp className="h-3.5 w-3.5 text-brand-navy" /> Margem Alvo Escritório
           </span>
-          <div className="text-xl font-bold text-emerald-600 mt-1">
+          <div className="text-xl font-bold text-brand-gold-dark mt-1">
             {(cfg.targetMarginRate * 100).toFixed(0)}%
           </div>
         </Card>

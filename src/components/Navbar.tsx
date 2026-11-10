@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '@/contexts/AuthContext'
 import { Button } from '@/components/ui/button'
-import { FileText, Sliders, LogOut, PlusCircle, Building2, Menu, X } from 'lucide-react'
+import { BrandLogo } from '@/lib/brand'
+import { FileText, Sliders, LogOut, PlusCircle, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
 export default function Navbar() {
@@ -27,19 +28,17 @@ export default function Navbar() {
     <header className="sticky top-0 z-40 w-full border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 print:hidden shadow-xs">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
         <div className="flex items-center gap-6">
-          <Link to="/propostas" className="flex items-center gap-2.5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-lg shadow-sm">
-              <Building2 className="h-5 w-5" />
-            </div>
+          <Link to="/propostas" className="flex items-center gap-3">
+            <BrandLogo className="h-10 w-auto rounded-md shadow-sm" />
             <div>
               <span className="font-bold text-lg tracking-tight text-foreground flex items-center gap-1.5">
                 RT360{' '}
-                <span className="text-xs px-1.5 py-0.5 rounded bg-primary/10 text-primary font-medium">
+                <span className="text-xs px-1.5 py-0.5 rounded bg-brand-navy text-white font-medium">
                   v3.0
                 </span>
               </span>
               <p className="text-xs text-muted-foreground hidden sm:block">
-                Metodologia RTE para Escritórios Contábeis
+                PS DE SOUZA • Metodologia RTE para Escritórios Contábeis
               </p>
             </div>
           </Link>
@@ -54,7 +53,7 @@ export default function Navbar() {
                   to={item.path}
                   className={`flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                     active
-                      ? 'bg-primary/10 text-primary'
+                      ? 'bg-brand-navy/10 text-brand-navy font-semibold'
                       : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                   }`}
                 >
@@ -68,7 +67,10 @@ export default function Navbar() {
 
         <div className="flex items-center gap-3">
           <Link to="/propostas/nova" className="hidden sm:inline-flex">
-            <Button size="sm" className="gap-1.5 shadow-sm">
+            <Button
+              size="sm"
+              className="gap-1.5 shadow-sm bg-brand-gold text-white hover:bg-brand-gold-dark"
+            >
               <PlusCircle className="h-4 w-4" />
               Nova Proposta
             </Button>
@@ -117,7 +119,9 @@ export default function Navbar() {
                 to={item.path}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`flex items-center gap-2 px-3 py-2.5 rounded-md text-sm font-medium ${
-                  active ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:bg-muted'
+                  active
+                    ? 'bg-brand-navy/10 text-brand-navy font-semibold'
+                    : 'text-muted-foreground hover:bg-muted'
                 }`}
               >
                 <Icon className="h-4 w-4" />
@@ -128,7 +132,7 @@ export default function Navbar() {
           <Link
             to="/propostas/nova"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2 px-3 py-2.5 rounded-md text-sm font-medium bg-primary text-primary-foreground"
+            className="flex items-center gap-2 px-3 py-2.5 rounded-md text-sm font-medium bg-brand-gold text-white"
           >
             <PlusCircle className="h-4 w-4" />
             Nova Proposta

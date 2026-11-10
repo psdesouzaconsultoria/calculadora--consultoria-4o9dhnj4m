@@ -11,8 +11,9 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Building2, Lock, Mail, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react'
+import { Lock, Mail, ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
+import { BrandLogo } from '@/lib/brand'
 
 export default function Login() {
   const { login, requestPasswordReset } = useAuth()
@@ -68,16 +69,20 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-muted/40 p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-brand-navy p-4 relative overflow-hidden">
+      {/* Filete dourado decorativo no topo, como no logo */}
+      <div className="absolute top-0 inset-x-0 h-1.5 bg-brand-gold" aria-hidden="true" />
+      <div
+        className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-brand-gold/10 blur-3xl"
+        aria-hidden="true"
+      />
+      <div className="w-full max-w-md relative">
         <div className="text-center mb-8">
-          <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground font-bold text-2xl shadow-lg mb-4">
-            <Building2 className="h-8 w-8" />
-          </div>
-          <h1 className="text-2xl font-bold tracking-tight text-foreground">
-            Calculadora RT360 <span className="text-primary text-sm font-semibold">v3.0</span>
+          <BrandLogo className="mx-auto h-28 w-auto rounded-xl shadow-lg mb-5" />
+          <h1 className="text-2xl font-bold tracking-tight text-white">
+            Calculadora RT360 <span className="text-brand-gold text-sm font-semibold">v3.0</span>
           </h1>
-          <p className="text-sm text-muted-foreground mt-1.5">
+          <p className="text-sm text-white/70 mt-1.5">
             Metodologia RTE para Reforma Tributária: Diagnóstico, Consultoria e Comitê
           </p>
         </div>
@@ -103,10 +108,10 @@ export default function Login() {
               )}
 
               {resetSent && isResetMode ? (
-                <div className="p-4 rounded-lg bg-primary/10 border border-primary/20 text-foreground text-sm flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                <div className="p-4 rounded-lg bg-brand-gold/10 border border-brand-gold/30 text-foreground text-sm flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-brand-gold-dark shrink-0 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-primary">Solicitação enviada!</p>
+                    <p className="font-semibold text-brand-gold-dark">Solicitação enviada!</p>
                     <p className="text-muted-foreground mt-1">
                       Enviamos as instruções para <strong>{email}</strong>. Siga o link no e-mail
                       para cadastrar uma nova senha.
@@ -142,7 +147,7 @@ export default function Login() {
                             setErrorMsg('')
                             setResetSent(false)
                           }}
-                          className="text-xs text-primary hover:underline"
+                          className="text-xs text-brand-gold-dark hover:underline font-semibold"
                         >
                           Esqueceu a senha?
                         </button>
@@ -196,10 +201,10 @@ export default function Login() {
 
               <div className="mt-2 text-center text-xs text-muted-foreground">
                 Credencial padrão configurada: <br />
-                <code className="text-primary font-mono font-medium">
+                <code className="text-brand-gold-dark font-mono font-medium">
                   psdesouzaconsultoria@gmail.com
                 </code>{' '}
-                / <code className="text-primary font-mono font-medium">Skip@Pass</code>
+                / <code className="text-brand-gold-dark font-mono font-medium">Skip@Pass</code>
               </div>
             </CardFooter>
           </form>

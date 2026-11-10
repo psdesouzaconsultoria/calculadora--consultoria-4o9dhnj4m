@@ -108,16 +108,19 @@ export default function ProposalsList() {
   const getStatusBadge = (status: string) => {
     switch (status) {
       case 'aprovada':
-        return <Badge className="bg-emerald-600 hover:bg-emerald-700">Aprovada</Badge>
+        return <Badge className="bg-brand-gold hover:bg-brand-gold-dark text-white">Aprovada</Badge>
       case 'em_negociacao':
         return (
-          <Badge variant="outline" className="text-amber-600 border-amber-500 bg-amber-50">
+          <Badge
+            variant="outline"
+            className="text-brand-gold-dark border-brand-gold bg-brand-gold/10"
+          >
             Em Negociação
           </Badge>
         )
       case 'enviada':
         return (
-          <Badge variant="secondary" className="bg-blue-100 text-blue-700">
+          <Badge variant="secondary" className="bg-brand-navy text-white">
             Enviada
           </Badge>
         )
@@ -191,12 +194,12 @@ export default function ProposalsList() {
       {/* Lista de Propostas */}
       {loading ? (
         <div className="flex items-center justify-center p-16">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-gold"></div>
         </div>
       ) : filteredProposals.length === 0 ? (
         <Card className="text-center p-12 border-dashed">
           <CardContent className="space-y-4 pt-6">
-            <div className="mx-auto w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <div className="mx-auto w-12 h-12 rounded-full bg-brand-navy/10 flex items-center justify-center text-brand-navy">
               <FileText className="h-6 w-6" />
             </div>
             <div>
@@ -234,12 +237,12 @@ export default function ProposalsList() {
               >
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-mono font-semibold text-primary px-2 py-0.5 rounded bg-primary/10">
+                    <span className="text-xs font-mono font-semibold text-brand-navy px-2 py-0.5 rounded bg-brand-navy/10">
                       {prop.code}
                     </span>
                     {getStatusBadge(prop.status)}
                   </div>
-                  <CardTitle className="text-lg font-bold tracking-tight text-foreground line-clamp-1 mt-1 group-hover:text-primary transition-colors">
+                  <CardTitle className="text-lg font-bold tracking-tight text-foreground line-clamp-1 mt-1 group-hover:text-brand-navy transition-colors">
                     {prop.client_name}
                   </CardTitle>
                   <CardDescription className="text-xs line-clamp-1">
@@ -251,7 +254,7 @@ export default function ProposalsList() {
                   <div className="p-2.5 rounded-lg bg-muted/60 flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">Produto Sugerido:</span>
                     <span className="font-semibold capitalize text-foreground flex items-center gap-1">
-                      <Sparkles className="h-3.5 w-3.5 text-primary" />
+                      <Sparkles className="h-3.5 w-3.5 text-brand-gold-dark" />
                       {recProduct === 'diagnostico'
                         ? 'Diagnóstico RT'
                         : recProduct === 'consultoria'
@@ -296,7 +299,7 @@ export default function ProposalsList() {
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="h-8 w-8 text-muted-foreground hover:text-primary"
+                        className="h-8 w-8 text-muted-foreground hover:text-brand-navy"
                         title="Ver Proposta Comercial (Impressão / PDF)"
                       >
                         <Printer className="h-3.5 w-3.5" />

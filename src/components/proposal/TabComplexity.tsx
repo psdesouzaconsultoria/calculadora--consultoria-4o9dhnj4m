@@ -30,10 +30,10 @@ export const TabComplexity: React.FC<TabComplexityProps> = ({
   }
 
   const getBadgeColor = (factor: number) => {
-    if (factor < 1.0) return 'bg-emerald-600 text-white'
-    if (factor <= 1.15) return 'bg-blue-600 text-white'
-    if (factor <= 1.3) return 'bg-amber-600 text-white'
-    return 'bg-purple-600 text-white'
+    if (factor < 1.0) return 'bg-brand-navy text-white'
+    if (factor <= 1.15) return 'bg-brand-navy-light text-white'
+    if (factor <= 1.3) return 'bg-brand-gold text-white'
+    return 'bg-rose-600 text-white'
   }
 
   const getComplexityLabel = (factor: number) => {
@@ -49,7 +49,7 @@ export const TabComplexity: React.FC<TabComplexityProps> = ({
         <CardContent className="p-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+              <div className="h-14 w-14 rounded-2xl bg-brand-navy/10 flex items-center justify-center text-brand-navy">
                 <Gauge className="h-8 w-8" />
               </div>
               <div>
@@ -70,7 +70,7 @@ export const TabComplexity: React.FC<TabComplexityProps> = ({
               <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
                 Fator Calculado
               </span>
-              <div className="text-3xl font-black text-primary font-mono tracking-tight">
+              <div className="text-3xl font-black text-brand-navy font-mono tracking-tight">
                 {calculatedFactor.toFixed(3)}x
               </div>
               <span className="text-[11px] text-muted-foreground">
@@ -86,7 +86,7 @@ export const TabComplexity: React.FC<TabComplexityProps> = ({
       <Card>
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
-            <Info className="h-5 w-5 text-primary" />
+            <Info className="h-5 w-5 text-brand-gold-dark" />
             2. Vetores de Complexidade Operacional e Tributária
           </CardTitle>
           <CardDescription>

@@ -50,7 +50,7 @@ export default function ParametersView() {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <div className="text-center space-y-3">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-brand-gold mx-auto"></div>
           <p className="text-sm text-muted-foreground">Carregando parâmetros RT360...</p>
         </div>
       </div>
@@ -127,7 +127,7 @@ export default function ParametersView() {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 mb-6 border-b">
         <div>
           <h1 className="text-3xl font-bold tracking-tight text-foreground flex items-center gap-2">
-            <Sliders className="h-7 w-7 text-primary" />
+            <Sliders className="h-7 w-7 text-brand-navy" />
             Parâmetros do Motor RT360 v3
           </h1>
           <p className="text-sm text-muted-foreground mt-1">
@@ -228,8 +228,8 @@ export default function ParametersView() {
                       />
                     </div>
                     <div>
-                      <Label className="text-[11px] font-semibold text-primary">
-                        Base Diagnóstico (R$)
+                      <Label className="text-[11px] font-semibold text-brand-navy">
+                        Preço Base Diagnóstico (R$)
                       </Label>
                       <Input
                         type="number"
@@ -241,7 +241,7 @@ export default function ParametersView() {
                       />
                     </div>
                     <div>
-                      <Label className="text-[11px] font-semibold text-primary">
+                      <Label className="text-[11px] font-semibold text-brand-navy">
                         Base Consultoria (R$)
                       </Label>
                       <Input
@@ -254,7 +254,7 @@ export default function ParametersView() {
                       />
                     </div>
                     <div>
-                      <Label className="text-[11px] font-semibold text-primary">
+                      <Label className="text-[11px] font-semibold text-brand-navy">
                         Base Comitê Mensal (R$)
                       </Label>
                       <Input

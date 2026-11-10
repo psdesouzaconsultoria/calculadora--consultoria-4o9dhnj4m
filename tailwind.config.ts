@@ -81,6 +81,13 @@ export default {
           4: 'hsl(var(--chart-4))',
           5: 'hsl(var(--chart-5))',
         },
+        /* Cores diretas da marca PS DE SOUZA */
+        brand: {
+          navy: 'hsl(var(--brand-navy))',
+          'navy-light': 'hsl(var(--brand-navy-light))',
+          gold: 'hsl(var(--brand-gold))',
+          'gold-dark': 'hsl(var(--brand-gold-dark))',
+        },
       },
       borderRadius: {
         lg: 'var(--radius)',

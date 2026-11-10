@@ -8,8 +8,6 @@ import { Button } from '@/components/ui/button'
 import {
   Printer,
   ArrowLeft,
-  Building2,
-  Calendar,
   CheckCircle2,
   FileCheck,
   ShieldCheck,
@@ -17,6 +15,7 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { useToast } from '@/hooks/use-toast'
+import { BrandLogo } from '@/lib/brand'
 
 export default function ProposalPrintView() {
   const { id } = useParams<{ id: string }>()
@@ -93,7 +92,7 @@ export default function ProposalPrintView() {
           <Button
             onClick={handlePrint}
             size="sm"
-            className="gap-2 shadow-xs bg-primary hover:bg-primary/90 text-white"
+            className="gap-2 shadow-xs bg-brand-navy hover:bg-brand-navy/90 text-white"
           >
             <Printer className="h-4 w-4" />
             Imprimir / Salvar em PDF
@@ -104,17 +103,15 @@ export default function ProposalPrintView() {
       {/* DOCUMENTO DA PROPOSTA COMERCIAL */}
       <div className="max-w-4xl mx-auto bg-white p-8 sm:p-12 shadow-lg border border-slate-200 rounded-xl print:shadow-none print:border-none print:p-0 print:m-0 print:max-w-none">
         {/* CABEÇALHO DO ESCRITÓRIO */}
-        <header className="border-b-2 border-slate-900 pb-8 flex flex-col sm:flex-row justify-between items-start gap-4">
+        <header className="border-b-4 border-brand-navy pb-8 flex flex-col sm:flex-row justify-between items-start gap-4">
           <div>
-            <div className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-xl bg-slate-900 text-white flex items-center justify-center font-bold text-xl">
-                <Building2 className="h-7 w-7" />
-              </div>
+            <div className="flex items-center gap-4">
+              <BrandLogo className="h-16 w-auto rounded-md print:h-14" />
               <div>
-                <h1 className="text-2xl font-black tracking-tight text-slate-900">
-                  {proposal.accounting_firm || 'SOUZA & ASSOCIADOS CONTABILIDADE'}
+                <h1 className="text-2xl font-black tracking-tight text-brand-navy uppercase">
+                  {proposal.accounting_firm || 'PS DE SOUZA — CONSULTORIA & SERVIÇOS CONTÁBIL'}
                 </h1>
-                <p className="text-xs uppercase font-semibold text-slate-500 tracking-wider">
+                <p className="text-xs uppercase font-semibold text-brand-gold-dark tracking-wider">
                   Divisão de Consultoria e Planejamento Tributário Estratégico
                 </p>
               </div>
@@ -122,10 +119,10 @@ export default function ProposalPrintView() {
           </div>
 
           <div className="text-left sm:text-right text-xs text-slate-600 space-y-1">
-            <p className="font-mono font-bold text-slate-900 text-sm">{proposal.code}</p>
+            <p className="font-mono font-bold text-brand-navy text-sm">{proposal.code}</p>
             <p>Emissão: {new Date(proposal.proposal_date).toLocaleDateString('pt-BR')}</p>
             <p>Validade: {new Date(proposal.valid_until).toLocaleDateString('pt-BR')}</p>
-            <p className="font-medium text-slate-800">Resp: {proposal.responsible_name}</p>
+            <p className="font-medium text-brand-navy">Resp: {proposal.responsible_name}</p>
           </div>
         </header>
 
@@ -159,10 +156,10 @@ export default function ProposalPrintView() {
 
         {/* TÍTULO DA PROPOSTA */}
         <div className="text-center my-10">
-          <span className="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-slate-100 text-slate-800 mb-2">
+          <span className="inline-block px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-brand-navy text-white mb-2">
             Metodologia RTE • Reforma Tributária 360°
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-navy tracking-tight">
             PROPOSTA TÉCNICA DE ADEQUAÇÃO E GOVERNANÇA
           </h2>
           <p className="text-sm text-slate-600 max-w-2xl mx-auto mt-2">
@@ -174,8 +171,8 @@ export default function ProposalPrintView() {
         {/* 1. APRESENTAÇÃO E CONTEXTO */}
         <div className="space-y-6 text-sm text-slate-700 leading-relaxed">
           <div>
-            <h3 className="text-base font-bold text-slate-900 uppercase tracking-wide border-b pb-1 mb-3 flex items-center gap-2">
-              <FileCheck className="h-4 w-4 text-slate-900" />
+            <h3 className="text-base font-bold text-brand-navy uppercase tracking-wide border-b-2 border-brand-gold pb-1 mb-3 flex items-center gap-2">
+              <FileCheck className="h-4 w-4 text-brand-gold-dark" />
               1. Apresentação Executiva
             </h3>
             <p className="text-justify">
@@ -185,8 +182,8 @@ export default function ProposalPrintView() {
           </div>
 
           <div>
-            <h3 className="text-base font-bold text-slate-900 uppercase tracking-wide border-b pb-1 mb-3 flex items-center gap-2">
-              <ShieldCheck className="h-4 w-4 text-slate-900" />
+            <h3 className="text-base font-bold text-brand-navy uppercase tracking-wide border-b-2 border-brand-gold pb-1 mb-3 flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-brand-gold-dark" />
               2. Contexto de Urgência da Reforma Tributária
             </h3>
             <p className="text-justify">
@@ -197,8 +194,8 @@ export default function ProposalPrintView() {
 
           {/* 3. OPÇÕES DE ATENDIMENTO E ENTREGÁVEIS */}
           <div>
-            <h3 className="text-base font-bold text-slate-900 uppercase tracking-wide border-b pb-1 mb-4 flex items-center gap-2">
-              <Award className="h-4 w-4 text-slate-900" />
+            <h3 className="text-base font-bold text-brand-navy uppercase tracking-wide border-b-2 border-brand-gold pb-1 mb-4 flex items-center gap-2">
+              <Award className="h-4 w-4 text-brand-gold-dark" />
               3. Opções de Escopo e Entregáveis (Metodologia RTE)
             </h3>
 
@@ -207,7 +204,7 @@ export default function ProposalPrintView() {
               <div
                 className={`p-5 rounded-lg border ${
                   recProduct === 'diagnostico'
-                    ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
+                    ? 'border-brand-navy bg-brand-navy/5 ring-1 ring-brand-navy'
                     : 'border-slate-200'
                 }`}
               >
@@ -224,7 +221,7 @@ export default function ProposalPrintView() {
                     </p>
                   </div>
                   {recProduct === 'diagnostico' && (
-                    <span className="px-2.5 py-1 text-xs font-bold rounded bg-slate-900 text-white shrink-0">
+                    <span className="px-2.5 py-1 text-xs font-bold rounded bg-brand-navy text-white shrink-0">
                       ★ Recomendado para a Empresa
                     </span>
                   )}
@@ -233,7 +230,7 @@ export default function ProposalPrintView() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-3 text-xs text-slate-700">
                   {templates.deliverables.diagnostico.scope.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="h-3.5 w-3.5 text-brand-gold-dark shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -254,7 +251,7 @@ export default function ProposalPrintView() {
               <div
                 className={`p-5 rounded-lg border ${
                   recProduct === 'consultoria'
-                    ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
+                    ? 'border-brand-navy bg-brand-navy/5 ring-1 ring-brand-navy'
                     : 'border-slate-200'
                 }`}
               >
@@ -271,7 +268,7 @@ export default function ProposalPrintView() {
                     </p>
                   </div>
                   {recProduct === 'consultoria' && (
-                    <span className="px-2.5 py-1 text-xs font-bold rounded bg-slate-900 text-white shrink-0">
+                    <span className="px-2.5 py-1 text-xs font-bold rounded bg-brand-navy text-white shrink-0">
                       ★ Recomendado para a Empresa
                     </span>
                   )}
@@ -280,7 +277,7 @@ export default function ProposalPrintView() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-3 text-xs text-slate-700">
                   {templates.deliverables.consultoria.scope.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="h-3.5 w-3.5 text-brand-gold-dark shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -301,7 +298,7 @@ export default function ProposalPrintView() {
               <div
                 className={`p-5 rounded-lg border ${
                   recProduct === 'comite'
-                    ? 'border-slate-900 bg-slate-50 ring-1 ring-slate-900'
+                    ? 'border-brand-navy bg-brand-navy/5 ring-1 ring-brand-navy'
                     : 'border-slate-200'
                 }`}
               >
@@ -318,7 +315,7 @@ export default function ProposalPrintView() {
                     </p>
                   </div>
                   {recProduct === 'comite' && (
-                    <span className="px-2.5 py-1 text-xs font-bold rounded bg-slate-900 text-white shrink-0">
+                    <span className="px-2.5 py-1 text-xs font-bold rounded bg-brand-navy text-white shrink-0">
                       ★ Recomendado para a Empresa
                     </span>
                   )}
@@ -327,7 +324,7 @@ export default function ProposalPrintView() {
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-3 text-xs text-slate-700">
                   {templates.deliverables.comite.scope.map((item, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                      <CheckCircle2 className="h-3.5 w-3.5 text-brand-gold-dark shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -347,8 +344,8 @@ export default function ProposalPrintView() {
 
           {/* 4. QUADRO DE INVESTIMENTO COMERCIAL */}
           <div className="pt-4 page-break-inside-avoid">
-            <h3 className="text-base font-bold text-slate-900 uppercase tracking-wide border-b pb-1 mb-4 flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-slate-900" />
+            <h3 className="text-base font-bold text-brand-navy uppercase tracking-wide border-b-2 border-brand-gold pb-1 mb-4 flex items-center gap-2">
+              <Sparkles className="h-4 w-4 text-brand-gold-dark" />
               4. Quadro de Investimento e Condições Comerciais
             </h3>
 
@@ -357,13 +354,13 @@ export default function ProposalPrintView() {
               <div
                 className={`p-4 rounded-lg border text-center ${
                   recProduct === 'diagnostico'
-                    ? 'bg-slate-50 border-slate-900 ring-2 ring-slate-900'
+                    ? 'bg-brand-navy/5 border-brand-navy ring-2 ring-brand-gold'
                     : 'border-slate-200'
                 }`}
               >
-                <h5 className="font-bold text-sm text-slate-900">Diagnóstico RT</h5>
+                <h5 className="font-bold text-sm text-brand-navy">Diagnóstico RT</h5>
                 <p className="text-[11px] text-slate-500 mb-3">Impacto & Prontidão</p>
-                <div className="text-2xl font-black text-slate-900">
+                <div className="text-2xl font-black text-brand-navy">
                   {formatBRL(pricing.diagnostico.finalPrice)}
                 </div>
                 {pricing.diagnostico.installmentsCount > 1 && (
@@ -373,7 +370,7 @@ export default function ProposalPrintView() {
                   </p>
                 )}
                 {recProduct === 'diagnostico' && (
-                  <span className="mt-2 inline-block text-[10px] font-bold text-slate-900 uppercase">
+                  <span className="mt-2 inline-block text-[10px] font-bold text-brand-gold-dark uppercase">
                     Opção Recomendada
                   </span>
                 )}
@@ -383,13 +380,13 @@ export default function ProposalPrintView() {
               <div
                 className={`p-4 rounded-lg border text-center ${
                   recProduct === 'consultoria'
-                    ? 'bg-slate-50 border-slate-900 ring-2 ring-slate-900'
+                    ? 'bg-brand-navy/5 border-brand-navy ring-2 ring-brand-gold'
                     : 'border-slate-200'
                 }`}
               >
-                <h5 className="font-bold text-sm text-slate-900">Consultoria RT</h5>
+                <h5 className="font-bold text-sm text-brand-navy">Consultoria RT</h5>
                 <p className="text-[11px] text-slate-500 mb-3">Implementação Completa</p>
-                <div className="text-2xl font-black text-slate-900">
+                <div className="text-2xl font-black text-brand-navy">
                   {formatBRL(pricing.consultoria.finalPrice)}
                 </div>
                 {pricing.consultoria.installmentsCount > 1 && (
@@ -399,7 +396,7 @@ export default function ProposalPrintView() {
                   </p>
                 )}
                 {recProduct === 'consultoria' && (
-                  <span className="mt-2 inline-block text-[10px] font-bold text-slate-900 uppercase">
+                  <span className="mt-2 inline-block text-[10px] font-bold text-brand-gold-dark uppercase">
                     Opção Recomendada
                   </span>
                 )}
@@ -409,13 +406,13 @@ export default function ProposalPrintView() {
               <div
                 className={`p-4 rounded-lg border text-center ${
                   recProduct === 'comite'
-                    ? 'bg-slate-50 border-slate-900 ring-2 ring-slate-900'
+                    ? 'bg-brand-navy/5 border-brand-navy ring-2 ring-brand-gold'
                     : 'border-slate-200'
                 }`}
               >
-                <h5 className="font-bold text-sm text-slate-900">Comitê Permanente RT</h5>
+                <h5 className="font-bold text-sm text-brand-navy">Comitê Permanente RT</h5>
                 <p className="text-[11px] text-slate-500 mb-3">Governança Recorrente</p>
-                <div className="text-2xl font-black text-slate-900">
+                <div className="text-2xl font-black text-brand-navy">
                   {formatBRL(pricing.comite.finalPrice)}
                   <span className="text-xs font-normal text-slate-600"> /mês</span>
                 </div>
@@ -423,7 +420,7 @@ export default function ProposalPrintView() {
                   Assinatura mensal de governança
                 </p>
                 {recProduct === 'comite' && (
-                  <span className="mt-2 inline-block text-[10px] font-bold text-slate-900 uppercase">
+                  <span className="mt-2 inline-block text-[10px] font-bold text-brand-gold-dark uppercase">
                     Opção Recomendada
                   </span>
                 )}
@@ -478,8 +475,8 @@ export default function ProposalPrintView() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 text-center text-xs">
             <div className="space-y-1">
               <div className="border-b border-slate-400 pb-1 mb-2"></div>
-              <p className="font-bold text-slate-900">
-                {proposal.accounting_firm || 'Escritório Contábil RT360'}
+              <p className="font-bold text-brand-navy">
+                {proposal.accounting_firm || 'PS DE SOUZA — Consultoria & Serviços Contábil'}
               </p>
               <p className="text-slate-600">{proposal.responsible_name || 'Responsável Técnico'}</p>
             </div>
@@ -492,8 +489,9 @@ export default function ProposalPrintView() {
             </div>
           </div>
 
-          <div className="text-center text-[10px] text-slate-400 mt-10 print:mt-6">
-            Documento gerado pela Calculadora RT360 v3.0 • Metodologia RTE para Reforma Tributária
+          <div className="text-center text-[10px] text-slate-500 mt-10 print:mt-6 border-t-2 border-brand-gold pt-3">
+            Documento gerado pela Calculadora RT360 v3.0 • PS DE SOUZA — Consultoria & Serviços
+            Contábil
           </div>
         </footer>
       </div>

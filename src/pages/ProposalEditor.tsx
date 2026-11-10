@@ -194,7 +194,7 @@ export default function ProposalEditor() {
     return (
       <div className="flex items-center justify-center min-h-[60vh]">
         <div className="text-center space-y-3">
-          <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary mx-auto"></div>
+          <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-brand-gold mx-auto"></div>
           <p className="text-sm text-muted-foreground">Carregando motor de cálculo RT360...</p>
         </div>
       </div>
@@ -221,7 +221,7 @@ export default function ProposalEditor() {
           </Link>
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-xs font-mono font-bold text-primary px-2 py-0.5 rounded bg-primary/10">
+              <span className="text-xs font-mono font-bold text-brand-navy px-2 py-0.5 rounded bg-brand-navy/10">
                 {proposal.code}
               </span>
               <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
@@ -270,7 +270,7 @@ export default function ProposalEditor() {
         <div>
           <span className="text-xs text-muted-foreground block">Produto Recomendado:</span>
           <span className="font-bold text-sm text-foreground flex items-center gap-1 mt-0.5">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
+            <Sparkles className="h-3.5 w-3.5 text-brand-gold-dark" />
             {recProduct === 'diagnostico'
               ? 'Diagnóstico RT'
               : recProduct === 'consultoria'
@@ -292,7 +292,7 @@ export default function ProposalEditor() {
           <span className="font-semibold text-sm text-foreground mt-0.5 block">
             {calculatedPricing.discountPercentage}%{' '}
             {calculatedPricing.discountPercentage > 0 && (
-              <span className="text-xs text-emerald-600 font-normal">com contrapartida</span>
+              <span className="text-xs text-brand-gold-dark font-normal">com contrapartida</span>
             )}
           </span>
         </div>
@@ -301,9 +301,9 @@ export default function ProposalEditor() {
           <Badge
             className={`mt-1 ${
               calculatedAudit.overallViability === 'verde'
-                ? 'bg-emerald-600'
+                ? 'bg-brand-gold'
                 : calculatedAudit.overallViability === 'amarelo'
-                  ? 'bg-amber-600'
+                  ? 'bg-brand-navy/80'
                   : 'bg-rose-600'
             }`}
           >

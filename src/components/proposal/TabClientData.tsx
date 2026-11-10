@@ -23,7 +23,7 @@ export default function TabClientData({ proposal, onChange }: TabClientDataProps
       <Card>
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
-            <Building className="h-5 w-5 text-primary" />
+            <Building className="h-5 w-5 text-brand-navy" />
             1. Identificação da Empresa e Contrato
           </CardTitle>
           <CardDescription>
@@ -100,7 +100,7 @@ export default function TabClientData({ proposal, onChange }: TabClientDataProps
 
           {/* 1.4 Regime Tributário Atual */}
           <div className="space-y-1.5">
-            <Label htmlFor="tax_regime" className="font-semibold text-primary">
+            <Label htmlFor="tax_regime" className="font-semibold text-brand-navy">
               1.4 Regime Tributário Atual *
             </Label>
             <select
@@ -121,9 +121,9 @@ export default function TabClientData({ proposal, onChange }: TabClientDataProps
           <div className="space-y-1.5">
             <Label
               htmlFor="monthly_revenue"
-              className="flex items-center gap-1.5 font-semibold text-primary"
+              className="flex items-center gap-1.5 font-semibold text-brand-navy"
             >
-              <DollarSign className="h-4 w-4 text-primary" />
+              <DollarSign className="h-4 w-4 text-brand-gold-dark" />
               1.5 Faturamento Médio Mensal (R$) *
             </Label>
             <Input
